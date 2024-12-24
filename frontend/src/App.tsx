@@ -5,20 +5,46 @@ import AboutUs from './pages/AboutUs'
 import Courses from './pages/Courses'
 import Orders from './pages/Orders'
 import NotFound from './pages/NotFound'
-import Layout from './components/Layout/Layout.tsx'
+
+import Layout from './components/Layout/Layout'
+
+import RequireAuth from './hoc/RequireAuth'
+import { AuthProvider } from './hoc/AuthProvider'
+import SignIn from './pages/SignIn'
 
 const App = () => {
-  return <>
+  return <AuthProvider>
       <Routes>
+          <Route path='/login' element={ <SignIn />} />
           <Route path='/' element={ <Layout />}>
-              <Route index element={<Profile />} />
-              <Route path='/courses' element={<Courses />} />
-              <Route path='/orders' element={<Orders />} />
-              <Route path='/about-us' element={<AboutUs />} />
-              <Route path='*' element={<NotFound />} />
+              <Route index element={
+                  <RequireAuth>
+                      <Profile />
+                  </RequireAuth>
+              } />
+              <Route path='/courses' element={
+                  <RequireAuth>
+                      <Courses />
+                  </RequireAuth>
+              } />
+              <Route path='/orders' element={
+                  <RequireAuth>
+                      <Orders />
+                  </RequireAuth>
+              } />
+              <Route path='/about-us' element={
+                  <RequireAuth>
+                      <AboutUs />
+                  </RequireAuth>
+              } />
+              <Route path='*' element={
+                  <RequireAuth>
+                      <NotFound />
+                  </RequireAuth>
+              } />
           </Route>
       </Routes>
-    </>
+    </AuthProvider>
 }
 
 export default App
