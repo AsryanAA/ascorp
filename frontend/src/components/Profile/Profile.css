@@ -1,0 +1,8 @@
+div {
+    margin: 5px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+}

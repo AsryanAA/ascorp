@@ -1,6 +1,10 @@
+import MyProfile from '../components/Profile/Profile.tsx'
+
+
 const Profile = () => {
     return <>
-        <h1>Profile</h1>
+        <h1>Профиль</h1>
+        <MyProfile />
     </>
 }
 
