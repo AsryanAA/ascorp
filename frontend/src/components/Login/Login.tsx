@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hook/useAuth'
+import { useAuthState } from '../../store/store'
 
 import logo from '../../assets/logo.jpg'
 
@@ -9,6 +10,8 @@ const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const { signin } = useAuth()
+    const { load } = useAuthState()
+    const { accessToken, refreshToken } = useAuthState()
 
     const from = location.state?.from?.pathname || '/'
 
@@ -21,19 +24,25 @@ const Login = () => {
         // получаем поля из формы авторизации
         const login = form.login.value
         const password = form.password.value
-        console.log(login, password)
 
-        // TODO: запрос на back
+        const credentials = {
+            login: login,
+            password: password
+        }
 
-        const user = true // заполнить поля пользователя
-        signin(user, () => navigate(from, { replace: true }))
+        load(credentials.login, credentials.password)
+
+        let tokens = []
+        tokens = [...tokens, accessToken, refreshToken]
+
+        signin(tokens, () => navigate(from, { replace: true }))
     }
 
     return <>
-        <img src={ logo } alt='logo'/>
+        <img src={logo} alt='logo'/>
         <form className='form' onSubmit={handleSubmit}>
             <h1 className='title'>ASCorp</h1>
-            <h4 className='sub-title'>Knowledge Academy</h4>
+            <h4 className='sub-title'>not just a company</h4>
             <div className='input'>
                 <input type='text' name='login' placeholder='Логин'/>
             </div>
