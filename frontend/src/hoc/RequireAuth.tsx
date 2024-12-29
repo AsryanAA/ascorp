@@ -1,7 +1,7 @@
 import { useLocation, Navigate } from 'react-router-dom'
 import { useAuth } from '../hook/useAuth'
 
-const RequireAuth = ({ children }) => {
+const RequireAuth1 = ({ children }) => {
     const location = useLocation()
     const { user } = useAuth()
 
@@ -12,4 +12,4 @@ const RequireAuth = ({ children }) => {
     return children
 }
 
-export default RequireAuth
+export default RequireAuth1

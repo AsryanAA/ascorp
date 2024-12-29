@@ -1,15 +1,14 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hook/useAuth'
-import {useAuthState, useProfileState} from '../../store/store'
 
-import logo from '../../assets/logo.jpg'
+import { useAuthState, useProfileState } from '../../store/store'
 
 import './Login.css'
+
+import logo from '../../assets/logo.jpg'
 
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation()
-    const { signin } = useAuth()
     const { load } = useAuthState()
     const { loading } = useAuthState()
     const { loadProfile } = useProfileState()
@@ -37,7 +36,7 @@ const Login = () => {
     }
 
     return <>
-        <img src={logo} alt='logo'/>
+        <img src={ logo as string } alt='logo'/>
         <form className='form' onSubmit={handleSubmit}>
             <h1 className='title'>ASCorp</h1>
             <h4 className='sub-title'>not just a company</h4>

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import './NavBar.css'
 
-const setActive = ({isActive}) => isActive ? 'active-link' : ''
+const setActive = ({ isActive }) => isActive ? 'active-link' : ''
 
 const NavBar = () => {
     return <>
