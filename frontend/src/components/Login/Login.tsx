@@ -47,7 +47,11 @@ const Login = () => {
             <div className='input'>
                 <input type='password' name='password' placeholder='Пароль'/>
             </div>
-            <button className='login-btn' type='submit'> {loading ? 'Загрузка...' : 'Войти'}</button>
+            <button className='login-btn' type='submit'>
+                {
+                    loading ? 'Загрузка...' : 'Войти'
+                }
+            </button>
             <Link to='/forgot-password'>Забыли пароль?</Link>
         </form>
     </>

@@ -1,13 +1,8 @@
-import { useAuth } from '../../hook/useAuth'
-import { useNavigate } from 'react-router-dom'
-
 import './Logout.css'
-import {useProfileState} from "../../store/store.ts";
+import { useProfileState } from '../../store/store'
 
 const Logout = () => {
     const { logout } = useProfileState()
-    const { signout } = useAuth()
-    const navigate = useNavigate()
 
     return <>
         <button
