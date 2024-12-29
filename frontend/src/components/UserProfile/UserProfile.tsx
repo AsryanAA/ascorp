@@ -1,17 +1,9 @@
-import { useAuthState, useProfileState } from '../../store/store'
-import { useEffect } from 'react'
+import { useProfileState } from '../../store/store'
 
-import './Profile.css'
+import './UserProfile.css'
 
-const MyProfile = () => {
-    const { user, load } = useProfileState()
-    const { accessToken }  = useAuthState()
-
-    useEffect(() => {
-        if (accessToken) {
-            load()
-        }
-    }, [accessToken])
+const UserProfile = () => {
+    const { user } = useProfileState()
 
     return <>
         <div className='profile'>
@@ -31,4 +23,4 @@ const MyProfile = () => {
     </>
 }
 
-export default MyProfile
+export default UserProfile

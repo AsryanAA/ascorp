@@ -1,20 +1,14 @@
-import { useAuth } from '../../hook/useAuth'
-import { useNavigate } from 'react-router-dom'
-
 import './Logout.css'
+import { useProfileState } from '../../store/store'
 
 const Logout = () => {
-    const { signout } = useAuth()
-    const navigate = useNavigate()
+    const { logout } = useProfileState()
 
     return <>
         <button
             className='logout-btn'
-            onClick={
-                () => signout(
-                () => navigate('/login', { replace: true })
-            )
-        }>
+            onClick={ logout }
+        >
             Выйти
         </button>
     </>

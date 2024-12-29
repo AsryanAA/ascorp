@@ -1,16 +1,16 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+
 import Profile from './pages/Profile'
 import AboutUs from './pages/AboutUs'
 import Courses from './pages/Courses'
 import Orders from './pages/Orders'
 import NotFound from './pages/NotFound'
+import SignIn from './pages/SignIn'
 
 import Layout from './components/Layout/Layout'
-
 import RequireAuth from './hoc/RequireAuth'
 import { AuthProvider } from './hoc/AuthProvider'
-import SignIn from './pages/SignIn'
 
 const App = () => {
   return <AuthProvider>

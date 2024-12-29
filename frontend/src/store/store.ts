@@ -1,23 +1,22 @@
 import { create } from 'zustand'
-import axios, {get} from 'axios'
+import axios from 'axios'
+import { persist } from 'zustand/middleware'
 
 const baseUrl:String = 'http://localhost:8090/api/v1'
 
 export const useAuthState = create(((set) => (
     {
-        accessToken: null,
-        refreshToken: null,
         loading: false,
         error: null,
         load: async (login, password) => {
             set({ loading: true })
 
-            const resp = await axios.post(baseUrl + '/admin/auth/login', {
-                username: login,
+            const resp = await axios.post(`${baseUrl}/admin/auth/login`, {
+                username: login, // TODO: исправить на login (backend)
                 password,
             }).then((resp) => {
-                set({ accessToken: resp.data.token.accessToken })
-                set({ refreshToken: resp.data.token.refreshToken })
+                localStorage.setItem('accessToken', resp.data.token.accessToken)
+                localStorage.setItem('refreshToken', resp.data.token.refreshToken)
             }).catch((error) => {
                 console.log(error.response.data.humanMessage)
             }).finally(() => {
@@ -28,20 +27,22 @@ export const useAuthState = create(((set) => (
     }
 )))
 
-export const useProfileState = create(set => (
+export const useProfileState = create(persist(set => (
     {
-        user: {
-            id: 0,
-            firstName: '',
-            lastName: '',
-            email: ''
+        user: null,
+        loading: false,
+        error: null,
+        logout: () => {
+            localStorage.removeItem('accessToken')
+            localStorage.removeItem('refreshToken')
+            set({ user: null })
         },
-        load: async () => {
+        loadProfile: async () => {
             set({ loading: true })
 
-            const resp = await axios.get(baseUrl + '/admin/users/profile', {
+            const resp = await axios.get(`${baseUrl}/admin/users/profile`, {
                 headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             }).then((resp) => {
                 set({ user: {
@@ -59,4 +60,4 @@ export const useProfileState = create(set => (
             })
         }
     }
-))
+)))

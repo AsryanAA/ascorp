@@ -1,10 +1,9 @@
-import MyProfile from '../components/Profile/Profile.tsx'
-
+import UserProfile from '../components/UserProfile/UserProfile'
 
 const Profile = () => {
     return <>
         <h1>Профиль</h1>
-        <MyProfile />
+        <UserProfile />
     </>
 }
 
