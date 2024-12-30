@@ -1,22 +1,28 @@
 import { NavLink } from 'react-router-dom'
+
 import './NavBar.css'
 
-const setActive = ({ isActive }) => isActive ? 'active-link' : ''
+import logo from '../../assets/logo.jpg'
+
+const setActive = ({ isActive }) => isActive ? 'menu-item active' : 'menu-item'
 
 const NavBar = () => {
     return <>
         <header>
-            <div>
-                <NavLink to='/' className={ setActive }>Профиль</NavLink>
-            </div>
-            <div>
-                <NavLink to='/courses' className={ setActive }>Курсы</NavLink>
-            </div>
-            <div>
-                <NavLink to='/orders' className={ setActive }>Заказы</NavLink>
-            </div>
-            <div>
-                <NavLink to='/about-us' className={ setActive }>О нас</NavLink>
+            <div className='menu'>
+                <div className='menu-list'>
+                    <img
+                        src={logo as string}
+                        alt='logo'
+                        width={100}
+                        height={100}
+                        className='navbar-logo'
+                    />
+                    <NavLink to='/' className={setActive}>Профиль</NavLink>
+                    <NavLink to='/courses' className={setActive}>Курсы</NavLink>
+                    <NavLink to='/orders' className={setActive}>Заказы</NavLink>
+                    <NavLink to='/about-us' className={setActive}>О нас</NavLink>
+                </div>
             </div>
         </header>
     </>

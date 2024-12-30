@@ -45,11 +45,15 @@ export const useProfileState = create(persist(set => (
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             }).then((resp) => {
+                console.log(resp.data.user)
                 set({ user: {
                         id: resp.data.user.id,
                         firstName: resp.data.user.firstName,
                         lastName: resp.data.user.lastName,
-                        email: resp.data.user.email
+                        email: resp.data.user.email,
+                        birthday: resp.data.user.birthday,
+                        onlineAt: resp.data.user.onlineAt,
+                        createdAt: resp.data.user.createdAt
                     }
                 })
             }).catch((error) => {

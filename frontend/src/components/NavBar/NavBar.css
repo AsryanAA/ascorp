@@ -1,5 +1,45 @@
-header {
+.navbar-logo {
+    margin-top: 10px;
+    opacity: 0.3;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar-logo:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.menu-list {
+    top: 0;
+    left: 0;
+    position: absolute;
     display: flex;
-    justify-content: space-around;
-    padding: 1%;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(to right, #0E2950, #12794EFF);
+    list-style-type: none;
+    transition: .3s;
+    width: 200px;
+    height: 100%;
+}
+
+.menu-item {
+    display: block;
+    padding: 1px;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.menu-item.active {
+    color: #FFF;
+}
+
+.menu-item:hover {
+    color: white;
+    border: none;
 }
