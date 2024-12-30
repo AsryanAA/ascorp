@@ -15,8 +15,8 @@ import { AuthProvider } from './hoc/AuthProvider'
 const App = () => {
   return <AuthProvider>
       <Routes>
-          <Route path='/login' element={ <SignIn />} />
-          <Route path='/' element={ <Layout />}>
+          <Route path='/login' element={ <SignIn /> } />
+          <Route path='/' element={ <Layout /> }>
               <Route index element={
                   <RequireAuth>
                       <Profile />

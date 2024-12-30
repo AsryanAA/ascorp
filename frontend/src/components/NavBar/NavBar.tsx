@@ -7,16 +7,16 @@ const NavBar = () => {
     return <>
         <header>
             <div>
-                <NavLink to='/' className={setActive}>Профиль</NavLink>
+                <NavLink to='/' className={ setActive }>Профиль</NavLink>
             </div>
             <div>
-                <NavLink to='/courses' className={setActive}>Курсы</NavLink>
+                <NavLink to='/courses' className={ setActive }>Курсы</NavLink>
             </div>
             <div>
-                <NavLink to='/orders' className={setActive}>Заказы</NavLink>
+                <NavLink to='/orders' className={ setActive }>Заказы</NavLink>
             </div>
             <div>
-                <NavLink to='/about-us' className={setActive}>О нас</NavLink>
+                <NavLink to='/about-us' className={ setActive }>О нас</NavLink>
             </div>
         </header>
     </>
