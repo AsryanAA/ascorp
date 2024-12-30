@@ -1,4 +1,11 @@
-footer {
-    display: flex;
-    justify-content: space-between;
+.logout-block {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
+.rights-block {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
 }

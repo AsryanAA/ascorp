@@ -12,6 +12,8 @@ import Layout from './components/Layout/Layout'
 import RequireAuth from './hoc/RequireAuth'
 import { AuthProvider } from './hoc/AuthProvider'
 
+import './App.css'
+
 const App = () => {
   return <AuthProvider>
       <Routes>

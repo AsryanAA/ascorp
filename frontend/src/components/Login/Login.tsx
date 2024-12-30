@@ -53,7 +53,7 @@ const Login = () => {
             <div className={ containerState }>
                 <div className='form-container sign-up'>
                     <form>
-                        <h1>Присоединиться к семье</h1>
+                        <h1>Присоединяйся к нам</h1>
                         <div className='social-icons'>
                             <Link to='#' className='icon'>
                                 <img src={telegram as string} width={30} height={30} alt='telegram'/>
@@ -77,7 +77,7 @@ const Login = () => {
                 </div>
                 <div className='form-container sign-in'>
                     <form onSubmit={ handleSubmit }>
-                        <h1>Войти</h1>
+                        <h1>Войди</h1>
                         <div className='social-icons'>
                             <Link to='#' className='icon'>
                                 <img src={telegram as string} width={30} height={30} alt='telegram'/>
